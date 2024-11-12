@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uploaded</title>
+  <style>
+    /* Background overlay */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      visibility: hidden; /* Hide modal initially */
+    }
+
+    /* Modal box */
+    .modal-box {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 80%;
+      text-align: center;
+    }
+
+    /* Close button */
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Show modal */
+    .modal-overlay.show {
+      visibility: visible;
+    }
+
+    .icon{
+        width: 50px;
+        height: 50px;
+    }
+    .button-success {
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            padding: 12px 24px; /* Spacing inside the button */
+            font-size: 16px; /* Font size */
+            font-weight: bold; /* Bold text */
+            border: none; /* Remove border */
+            border-radius: 8px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+        }
+
+        /* Hover effect */
+        .button-success:hover {
+            background-color: #45a049; /* Slightly darker green */
+            transform: translateY(-2px); /* Lift button */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow */
+        }
+
+        /* Active effect */
+        .button-success:active {
+            background-color: #388e3c; /* Darker green on click */
+            transform: translateY(0); /* Reset position */
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Lower shadow */
+        }
+
+
+        .button-error {
+            background-color: #c30010; /* Green background */
+            color: white; /* White text */
+            padding: 12px 24px; /* Spacing inside the button */
+            font-size: 16px; /* Font size */
+            font-weight: bold; /* Bold text */
+            border: none; /* Remove border */
+            border-radius: 8px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+        }
+
+        /* Hover effect */
+        .button-error:hover {
+            background-color: #f01e2c; /* Slightly darker green */
+            transform: translateY(-2px); /* Lift button */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow */
+        }
+
+        /* Active effect */
+        .button-error:active {
+            background-color: #f01e2c; /* Darker green on click */
+            transform: translateY(0); /* Reset position */
+        }
+
+        .image {
+            width: 90vw;
+            height: 90vh;
+        }
+        .abc {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+           
+  </style>
+</head>
+<body>
+
+  <div class="modal-overlay show" id="modal">
+    <div class="modal-box">
+            <img src="../static/success-35.png" class="icon">
+            <h2>Uploaded success</h2>
+            <p id="countdown">You will be redirected to the homepage in 3 seconds.</p>
+            <button class="button-success" onclick="window.location.href='/'">Redirect Now</button>
+    </div>
+  </div>
+
+  <script>
+        // Countdown and redirect logic
+        var countdown = 3;
+        var countdownElement = document.getElementById("countdown");
+
+        function updateCountdown() {
+            if (countdown > 0) {
+                countdownElement.innerHTML = "You will be redirected to the homepage in " + countdown + " seconds.";
+                countdown--;
+            } else {
+                window.location.href = "/";
+            }
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
